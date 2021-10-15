@@ -13,6 +13,8 @@
 		08C050D42718CE9200300126 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C050D22718CE9200300126 /* LaunchScreen.storyboard */; };
 		08C050E82719321300300126 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050E72719321300300126 /* SearchVC.swift */; };
 		08C050EB271932A000300126 /* FavoriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050EA271932A000300126 /* FavoriteListVC.swift */; };
+		08C050EE2719E47B00300126 /* GBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050ED2719E47B00300126 /* GBButton.swift */; };
+		08C050F12719F0A100300126 /* GBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050F02719F0A100300126 /* GBTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		08C050D52718CE9200300126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08C050E72719321300300126 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		08C050EA271932A000300126 /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
+		08C050ED2719E47B00300126 /* GBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBButton.swift; sourceTree = "<group>"; };
+		08C050F02719F0A100300126 /* GBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				08C050D52718CE9200300126 /* Info.plist */,
 				08C050E72719321300300126 /* SearchVC.swift */,
 				08C050EA271932A000300126 /* FavoriteListVC.swift */,
+				08C050ED2719E47B00300126 /* GBButton.swift */,
+				08C050F02719F0A100300126 /* GBTextField.swift */,
 			);
 			path = GitBook;
 			sourceTree = "<group>";
@@ -136,9 +142,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C050F12719F0A100300126 /* GBTextField.swift in Sources */,
 				08C050EB271932A000300126 /* FavoriteListVC.swift in Sources */,
 				08C050E82719321300300126 /* SearchVC.swift in Sources */,
 				08C050C82718CE9000300126 /* AppDelegate.swift in Sources */,
+				08C050EE2719E47B00300126 /* GBButton.swift in Sources */,
 				08C050CA2718CE9000300126 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
