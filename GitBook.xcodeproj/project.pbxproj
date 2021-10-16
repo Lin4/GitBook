@@ -15,6 +15,8 @@
 		08C050EB271932A000300126 /* FavoriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050EA271932A000300126 /* FavoriteListVC.swift */; };
 		08C050EE2719E47B00300126 /* GBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050ED2719E47B00300126 /* GBButton.swift */; };
 		08C050F12719F0A100300126 /* GBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050F02719F0A100300126 /* GBTextField.swift */; };
+		08C050F5271A7D7100300126 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050F4271A7D7100300126 /* FollowerListVC.swift */; };
+		08C050F8271A894000300126 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050F7271A894000300126 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		08C050EA271932A000300126 /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
 		08C050ED2719E47B00300126 /* GBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBButton.swift; sourceTree = "<group>"; };
 		08C050F02719F0A100300126 /* GBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTextField.swift; sourceTree = "<group>"; };
+		08C050F4271A7D7100300126 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
+		08C050F7271A894000300126 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				08C050EA271932A000300126 /* FavoriteListVC.swift */,
 				08C050ED2719E47B00300126 /* GBButton.swift */,
 				08C050F02719F0A100300126 /* GBTextField.swift */,
+				08C050F4271A7D7100300126 /* FollowerListVC.swift */,
+				08C050F7271A894000300126 /* String+Ext.swift */,
 			);
 			path = GitBook;
 			sourceTree = "<group>";
@@ -146,7 +152,9 @@
 				08C050EB271932A000300126 /* FavoriteListVC.swift in Sources */,
 				08C050E82719321300300126 /* SearchVC.swift in Sources */,
 				08C050C82718CE9000300126 /* AppDelegate.swift in Sources */,
+				08C050F5271A7D7100300126 /* FollowerListVC.swift in Sources */,
 				08C050EE2719E47B00300126 /* GBButton.swift in Sources */,
+				08C050F8271A894000300126 /* String+Ext.swift in Sources */,
 				08C050CA2718CE9000300126 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
