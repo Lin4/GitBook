@@ -21,6 +21,9 @@
 		08C050FE271A981100300126 /* GBBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050FD271A981100300126 /* GBBodyLabel.swift */; };
 		08C05101271B961500300126 /* GBAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05100271B961500300126 /* GBAlertVC.swift */; };
 		08C05105271BB39900300126 /* UIViewController.EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05104271BB39900300126 /* UIViewController.EXT.swift */; };
+		08C0512A271BDCEA00300126 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05129271BDCEA00300126 /* User.swift */; };
+		08C0512D271BDD0400300126 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C0512C271BDD0400300126 /* Follower.swift */; };
+		08C05138271C447000300126 /* NetworkManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05137271C447000300126 /* NetworkManagers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +32,6 @@
 		08C050C92718CE9000300126 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		08C050D02718CE9200300126 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08C050D32718CE9200300126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		08C050D52718CE9200300126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08C050E72719321300300126 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		08C050EA271932A000300126 /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
 		08C050ED2719E47B00300126 /* GBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBButton.swift; sourceTree = "<group>"; };
@@ -40,6 +42,10 @@
 		08C050FD271A981100300126 /* GBBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBBodyLabel.swift; sourceTree = "<group>"; };
 		08C05100271B961500300126 /* GBAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBAlertVC.swift; sourceTree = "<group>"; };
 		08C05104271BB39900300126 /* UIViewController.EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.EXT.swift; sourceTree = "<group>"; };
+		08C05129271BDCEA00300126 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = GitBook.xcodeproj/User.swift; sourceTree = SOURCE_ROOT; };
+		08C0512C271BDD0400300126 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Follower.swift; path = GitBook.xcodeproj/Follower.swift; sourceTree = SOURCE_ROOT; };
+		08C05137271C447000300126 /* NetworkManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManagers.swift; path = GitBook.xcodeproj/NetworkManagers.swift; sourceTree = SOURCE_ROOT; };
+		08C0515B271CC07D00300126 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,23 +78,74 @@
 		08C050C62718CE9000300126 /* GitBook */ = {
 			isa = PBXGroup;
 			children = (
+				08C05136271C443B00300126 /* Managers */,
+				08C05125271BD7C400300126 /* Controllers */,
+				08C05124271BD7BA00300126 /* Views */,
+				08C05123271BD7AE00300126 /* Models */,
 				08C050C72718CE9000300126 /* AppDelegate.swift */,
 				08C050C92718CE9000300126 /* SceneDelegate.swift */,
 				08C050D02718CE9200300126 /* Assets.xcassets */,
+				08C0515B271CC07D00300126 /* Info.plist */,
 				08C050D22718CE9200300126 /* LaunchScreen.storyboard */,
-				08C050D52718CE9200300126 /* Info.plist */,
-				08C050E72719321300300126 /* SearchVC.swift */,
-				08C050EA271932A000300126 /* FavoriteListVC.swift */,
-				08C050ED2719E47B00300126 /* GBButton.swift */,
-				08C050F02719F0A100300126 /* GBTextField.swift */,
-				08C050F4271A7D7100300126 /* FollowerListVC.swift */,
-				08C050F7271A894000300126 /* String+Ext.swift */,
-				08C050FA271A8AE300300126 /* GBTitleLabel.swift */,
-				08C05100271B961500300126 /* GBAlertVC.swift */,
-				08C05104271BB39900300126 /* UIViewController.EXT.swift */,
-				08C050FD271A981100300126 /* GBBodyLabel.swift */,
 			);
 			path = GitBook;
+			sourceTree = "<group>";
+		};
+		08C05123271BD7AE00300126 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				08C05129271BDCEA00300126 /* User.swift */,
+				08C0512C271BDD0400300126 /* Follower.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		08C05124271BD7BA00300126 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				08C05127271BD81900300126 /* Extensions */,
+				08C05126271BD7D200300126 /* CustomViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		08C05125271BD7C400300126 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				08C050EA271932A000300126 /* FavoriteListVC.swift */,
+				08C050E72719321300300126 /* SearchVC.swift */,
+				08C05100271B961500300126 /* GBAlertVC.swift */,
+				08C050F4271A7D7100300126 /* FollowerListVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		08C05126271BD7D200300126 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				08C050ED2719E47B00300126 /* GBButton.swift */,
+				08C050F02719F0A100300126 /* GBTextField.swift */,
+				08C050FA271A8AE300300126 /* GBTitleLabel.swift */,
+				08C050FD271A981100300126 /* GBBodyLabel.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		08C05127271BD81900300126 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08C05104271BB39900300126 /* UIViewController.EXT.swift */,
+				08C050F7271A894000300126 /* String+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08C05136271C443B00300126 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				08C05137271C447000300126 /* NetworkManagers.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C05138271C447000300126 /* NetworkManagers.swift in Sources */,
+				08C0512A271BDCEA00300126 /* User.swift in Sources */,
+				08C0512D271BDD0400300126 /* Follower.swift in Sources */,
 				08C050FB271A8AE300300126 /* GBTitleLabel.swift in Sources */,
 				08C050F12719F0A100300126 /* GBTextField.swift in Sources */,
 				08C050EB271932A000300126 /* FavoriteListVC.swift in Sources */,
@@ -313,6 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HV597UH4PF;
 				INFOPLIST_FILE = GitBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,6 +393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HV597UH4PF;
 				INFOPLIST_FILE = GitBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
