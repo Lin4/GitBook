@@ -17,6 +17,10 @@
 		08C050F12719F0A100300126 /* GBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050F02719F0A100300126 /* GBTextField.swift */; };
 		08C050F5271A7D7100300126 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050F4271A7D7100300126 /* FollowerListVC.swift */; };
 		08C050F8271A894000300126 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050F7271A894000300126 /* String+Ext.swift */; };
+		08C050FB271A8AE300300126 /* GBTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050FA271A8AE300300126 /* GBTitleLabel.swift */; };
+		08C050FE271A981100300126 /* GBBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050FD271A981100300126 /* GBBodyLabel.swift */; };
+		08C05101271B961500300126 /* GBAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05100271B961500300126 /* GBAlertVC.swift */; };
+		08C05105271BB39900300126 /* UIViewController.EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05104271BB39900300126 /* UIViewController.EXT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		08C050F02719F0A100300126 /* GBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTextField.swift; sourceTree = "<group>"; };
 		08C050F4271A7D7100300126 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		08C050F7271A894000300126 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		08C050FA271A8AE300300126 /* GBTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTitleLabel.swift; sourceTree = "<group>"; };
+		08C050FD271A981100300126 /* GBBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBBodyLabel.swift; sourceTree = "<group>"; };
+		08C05100271B961500300126 /* GBAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBAlertVC.swift; sourceTree = "<group>"; };
+		08C05104271BB39900300126 /* UIViewController.EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.EXT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,10 @@
 				08C050F02719F0A100300126 /* GBTextField.swift */,
 				08C050F4271A7D7100300126 /* FollowerListVC.swift */,
 				08C050F7271A894000300126 /* String+Ext.swift */,
+				08C050FA271A8AE300300126 /* GBTitleLabel.swift */,
+				08C05100271B961500300126 /* GBAlertVC.swift */,
+				08C05104271BB39900300126 /* UIViewController.EXT.swift */,
+				08C050FD271A981100300126 /* GBBodyLabel.swift */,
 			);
 			path = GitBook;
 			sourceTree = "<group>";
@@ -148,14 +160,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C050FB271A8AE300300126 /* GBTitleLabel.swift in Sources */,
 				08C050F12719F0A100300126 /* GBTextField.swift in Sources */,
 				08C050EB271932A000300126 /* FavoriteListVC.swift in Sources */,
+				08C05101271B961500300126 /* GBAlertVC.swift in Sources */,
 				08C050E82719321300300126 /* SearchVC.swift in Sources */,
 				08C050C82718CE9000300126 /* AppDelegate.swift in Sources */,
 				08C050F5271A7D7100300126 /* FollowerListVC.swift in Sources */,
 				08C050EE2719E47B00300126 /* GBButton.swift in Sources */,
 				08C050F8271A894000300126 /* String+Ext.swift in Sources */,
+				08C05105271BB39900300126 /* UIViewController.EXT.swift in Sources */,
 				08C050CA2718CE9000300126 /* SceneDelegate.swift in Sources */,
+				08C050FE271A981100300126 /* GBBodyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
