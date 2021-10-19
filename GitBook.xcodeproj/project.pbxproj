@@ -27,6 +27,7 @@
 		08C05161271CE3A900300126 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05160271CE3A900300126 /* ErrorMessage.swift */; };
 		08C05167271D5DA300300126 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05166271D5DA300300126 /* FollowerCell.swift */; };
 		08C0516A271E64F200300126 /* GBAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C05169271E64F200300126 /* GBAvatarImageView.swift */; };
+		08C0516E271F226000300126 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C0516D271F226000300126 /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		08C05160271CE3A900300126 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		08C05166271D5DA300300126 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		08C05169271E64F200300126 /* GBAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBAvatarImageView.swift; sourceTree = "<group>"; };
+		08C0516D271F226000300126 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				08C05160271CE3A900300126 /* ErrorMessage.swift */,
+				08C0516D271F226000300126 /* UIHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				08C050EE2719E47B00300126 /* GBButton.swift in Sources */,
 				08C050F8271A894000300126 /* String+Ext.swift in Sources */,
 				08C05161271CE3A900300126 /* ErrorMessage.swift in Sources */,
+				08C0516E271F226000300126 /* UIHelper.swift in Sources */,
 				08C05105271BB39900300126 /* UIViewController.EXT.swift in Sources */,
 				08C050CA2718CE9000300126 /* SceneDelegate.swift in Sources */,
 				08C050FE271A981100300126 /* GBBodyLabel.swift in Sources */,

@@ -36,7 +36,6 @@ class FollowerListVC: UIViewController {
     }
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -45,7 +44,7 @@ class FollowerListVC: UIViewController {
 
     
     func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: threeColumnFlowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.threeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
@@ -53,27 +52,10 @@ class FollowerListVC: UIViewController {
     }
     
     
-    func threeColumnFlowLayout() -> UICollectionViewFlowLayout {
-        
-        let width                           = view.bounds.width
-        let padding: CGFloat                = 12
-        let minimumItemSpacing: CGFloat     = 10
-        let availableWidth                  = width - (padding * 2) - (minimumItemSpacing * 2)
-        let cellWidth                       = availableWidth / 3
-        
-        let flowLayout                      = UICollectionViewFlowLayout()
-        flowLayout.sectionInset             = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize                 = CGSize(width: cellWidth, height: cellWidth + 40)
-        
-        
-        return flowLayout
-    }
-    
-    
     func getFollowers() {
         
-        NetworkManager.shared.getFollowers(for: userName, page: 1) { result in
-            
+        NetworkManager.shared.getFollowers(for: userName, page: 1) { [weak self] result in
+            guard let self = self else {return}
             switch result {
             case .success(let followers):
                 self.followers = followers
