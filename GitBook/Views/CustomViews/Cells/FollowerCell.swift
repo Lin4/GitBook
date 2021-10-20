@@ -23,6 +23,7 @@ class FollowerCell: UICollectionViewCell {
     
     func set(follower: Follower){
         userNameLbl.text = follower.login
+        avatarImageView.downloadImage(from: follower.avatarUrl)
     }
     
     override init(frame: CGRect){

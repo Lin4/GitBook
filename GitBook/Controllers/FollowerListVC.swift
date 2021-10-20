@@ -50,7 +50,7 @@ class FollowerListVC: UIViewController {
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
         
     }
-    
+     
     
     func getFollowers() {
         
