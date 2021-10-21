@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08BE5E3D272107CE00200CA9 /* GFEmptyFolowerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE5E3C272107CE00200CA9 /* GFEmptyFolowerList.swift */; };
 		08C050C82718CE9000300126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050C72718CE9000300126 /* AppDelegate.swift */; };
 		08C050CA2718CE9000300126 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050C92718CE9000300126 /* SceneDelegate.swift */; };
 		08C050D12718CE9200300126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C050D02718CE9200300126 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08BE5E3C272107CE00200CA9 /* GFEmptyFolowerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyFolowerList.swift; sourceTree = "<group>"; };
 		08C050C42718CE9000300126 /* GitBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08C050C72718CE9000300126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08C050C92718CE9000300126 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08BE5E372721064800200CA9 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				08C050FA271A8AE300300126 /* GBTitleLabel.swift */,
+				08C050FD271A981100300126 /* GBBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		08BE5E382721065600200CA9 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				08C050ED2719E47B00300126 /* GBButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		08BE5E392721066300200CA9 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				08C05169271E64F200300126 /* GBAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		08BE5E3A2721067E00200CA9 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				08C050F02719F0A100300126 /* GBTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		08BE5E3B272106A200200CA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				08BE5E3C272107CE00200CA9 /* GFEmptyFolowerList.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		08C050BB2718CE9000300126 = {
 			isa = PBXGroup;
 			children = (
@@ -86,10 +129,12 @@
 		08C050C62718CE9000300126 /* GitBook */ = {
 			isa = PBXGroup;
 			children = (
+				08C05126271BD7D200300126 /* CustomCells */,
+				08C05127271BD81900300126 /* Extensions */,
 				08C0515F271CE37B00300126 /* Utils */,
 				08C05136271C443B00300126 /* Managers */,
 				08C05125271BD7C400300126 /* Controllers */,
-				08C05124271BD7BA00300126 /* Views */,
+				08C05124271BD7BA00300126 /* CustomViews */,
 				08C05123271BD7AE00300126 /* Models */,
 				08C050C72718CE9000300126 /* AppDelegate.swift */,
 				08C050C92718CE9000300126 /* SceneDelegate.swift */,
@@ -109,13 +154,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		08C05124271BD7BA00300126 /* Views */ = {
+		08C05124271BD7BA00300126 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				08C05127271BD81900300126 /* Extensions */,
-				08C05126271BD7D200300126 /* CustomViews */,
+				08BE5E3B272106A200200CA9 /* Views */,
+				08BE5E3A2721067E00200CA9 /* TextFields */,
+				08BE5E392721066300200CA9 /* ImageViews */,
+				08BE5E382721065600200CA9 /* Buttons */,
+				08BE5E372721064800200CA9 /* Labels */,
 			);
-			path = Views;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		08C05125271BD7C400300126 /* Controllers */ = {
@@ -129,17 +177,12 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		08C05126271BD7D200300126 /* CustomViews */ = {
+		08C05126271BD7D200300126 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
 				08C05165271D5D6C00300126 /* Cells */,
-				08C050ED2719E47B00300126 /* GBButton.swift */,
-				08C050F02719F0A100300126 /* GBTextField.swift */,
-				08C050FA271A8AE300300126 /* GBTitleLabel.swift */,
-				08C050FD271A981100300126 /* GBBodyLabel.swift */,
-				08C05169271E64F200300126 /* GBAvatarImageView.swift */,
 			);
-			path = CustomViews;
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		08C05127271BD81900300126 /* Extensions */ = {
@@ -250,6 +293,7 @@
 				08C0512D271BDD0400300126 /* Follower.swift in Sources */,
 				08C050FB271A8AE300300126 /* GBTitleLabel.swift in Sources */,
 				08C0516A271E64F200300126 /* GBAvatarImageView.swift in Sources */,
+				08BE5E3D272107CE00200CA9 /* GFEmptyFolowerList.swift in Sources */,
 				08C050F12719F0A100300126 /* GBTextField.swift in Sources */,
 				08C050EB271932A000300126 /* FavoriteListVC.swift in Sources */,
 				08C05101271B961500300126 /* GBAlertVC.swift in Sources */,
