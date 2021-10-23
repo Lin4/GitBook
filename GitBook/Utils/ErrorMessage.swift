@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum GBError: String, Error {
+enum GBErrors: String, Error {
     case invalidUserName = "this username created an invalid request. Please try again"
     case unableToComplete = "unable to complete your request. Please check your internet connection"
     case invalidResponse = "invalid response from the server. Please try again."

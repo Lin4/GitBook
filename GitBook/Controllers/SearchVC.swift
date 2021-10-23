@@ -53,9 +53,7 @@ class SearchVC: UIViewController {
     followerListVC.title    = userNameTF.text
     navigationController?.pushViewController(followerListVC, animated: true)
     
-    
-        
-    }
+   }
     
     
     

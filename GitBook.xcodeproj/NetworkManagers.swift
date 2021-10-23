@@ -15,7 +15,7 @@ class NetworkManager {
     private init() {}
     
     
-    func getFollowers(for userName: String, page: Int, completed: @escaping(Result<[Follower], GBError>) -> Void) {
+    func getFollowers(for userName: String, page: Int, completed: @escaping(Result<[Follower], GBErrors>) -> Void) {
         
         let endpoint = baseURL + "\(userName)/followers?per_page=100&page=\(page)"
         
@@ -44,6 +44,44 @@ class NetworkManager {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let followers = try decoder.decode([Follower].self, from: data)
                 completed(.success(followers))
+            } catch {
+                completed(.failure(.invalidData))
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
+    func getUserInfo(for userName: String, completed: @escaping(Result<User, GBErrors>) -> Void) {
+        
+        let endpoint = baseURL + "\(userName)"
+        
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.invalidUserName))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {data, response, error in
+            
+            if let _ = error {
+                completed(.failure(.invalidUserName))
+                return
+            }
+            guard let response = response as? HTTPURLResponse,
+                  response.statusCode == 200 else {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            guard let data = data else {
+                completed(.failure(.invalidData))
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let user = try decoder.decode(User.self, from: data)
+                completed(.success(user))
             } catch {
                 completed(.failure(.invalidData))
             }

@@ -39,6 +39,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return UINavigationController(rootViewController: favoriteListVC)
     }
     
+    func createFollowerListNC() -> UINavigationController {
+        let followerListVC = FollowerListVC()
+        return UINavigationController(rootViewController: followerListVC)
+    }
+    
     func createTabBar() -> UITabBarController {
         let tabBar = UITabBarController()
         UITabBar.appearance().tintColor = .systemGreen
