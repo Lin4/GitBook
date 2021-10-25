@@ -20,4 +20,7 @@ class GBRepoItemVC: GBItemInfoVC {
         actionButton.set(backgroundColor: .systemTeal, title: "GitHub Profile")
     }
     
+    override func actionButtonTapped() {
+        delegate.didTapGitHubProfile(for: user)
+    }
 }
