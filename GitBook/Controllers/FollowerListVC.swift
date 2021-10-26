@@ -42,8 +42,36 @@ class FollowerListVC: UIViewController {
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
     }
     
+    @objc func addButtonTapped() {
+        showLodingView()
+        NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
+            guard let self = self else {return}
+            self.dismissLodingView()
+            
+            switch result {
+            case .success(let user):
+                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                PresistanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+                    guard let self = self else {return}
+                    guard let error = error else {
+                    self.presentGBAlertOnMainThread(title: "Success", message: "You have successfully add favorite list", buttonTitle: "Ok")
+                        return
+                    }
+                    self.presentGBAlertOnMainThread(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
+                }
+                
+            case  .failure(let error):
+                self.presentGBAlertOnMainThread(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
+            }
+            
+        }
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
