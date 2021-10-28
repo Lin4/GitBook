@@ -7,8 +7,10 @@
 
 import UIKit
 
-class FavoriteListVC: UIViewController {
-    
+
+class FavoriteListVC: GBDataLoadingVC {
+
+
     var tableView = UITableView()
     
     var favorites: [Follower] = []
@@ -22,7 +24,7 @@ class FavoriteListVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getFavoritesList() 
+        getFavoritesList()
     }
     
     func configureViewController() {
@@ -82,7 +84,7 @@ extension FavoriteListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let favorite    = favorites[indexPath.row]
-        let destVC      = FollowerListVC()
+        let destVC      = FollowerListVC(userName: favorite.login)
         destVC.userName = favorite.login
         destVC.title    = favorite.login
         
@@ -97,10 +99,11 @@ extension FavoriteListVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deleteRows(at: [indexPath], with: .left)
         
         PresistanceManager.updateWith(favorite: favorite, actionType: .remove) {[weak self] error in
-            guard let self = self else {return}
+            guard let self  = self else {return}
             guard let error = error else {return}
             self.presentGBAlertOnMainThread(title: "Unable to remove", message: error.rawValue, buttonTitle: "Ok")
         }
     }
-    
 }
+    
+ 

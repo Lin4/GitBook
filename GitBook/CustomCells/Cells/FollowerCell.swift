@@ -21,7 +21,10 @@ class FollowerCell: UICollectionViewCell {
     
     func set(follower: Follower){
         userNameLbl.text = follower.login
-        avatarImageView.downloadImage(from: follower.avatarUrl)
+        NetworkManager.shared.downloadImage(from: follower.avatarUrl) {[weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.avatarImageView.image = image }
+        }
     }
     
     override init(frame: CGRect){
@@ -36,15 +39,15 @@ class FollowerCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
         
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            avatarImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
             
             
             userNameLbl.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),
-            userNameLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            userNameLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            userNameLbl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            userNameLbl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             userNameLbl.heightAnchor.constraint(equalToConstant: 20)
         ])
     }

@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol FolowerListVCDelegate: class {
+protocol FolowerListVCDelegate: AnyObject {
     func didRequestFollowers(for userName: String)
 }
 
-class FollowerListVC: UIViewController {
+class FollowerListVC: GBDataLoadingVC {
     
     enum Section {
         case main
@@ -27,6 +27,16 @@ class FollowerListVC: UIViewController {
     var hasMoreFollowers = true
     var isSearching = false
     var page = 1
+    
+    init(userName: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.userName   = userName
+        title           = userName
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {

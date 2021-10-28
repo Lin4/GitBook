@@ -38,7 +38,7 @@ class GBUserInfoHeaderVC: UIViewController {
     
     
     func configureUIElements() {
-        avatarImageView.downloadImage(from: user.avatarUrl)
+        downloadImage()
         userNameLbl.text        = user.login
         nameLabel.text          = user.name ?? ""
         locationLbl.text        = user.location ?? ""
@@ -58,6 +58,12 @@ class GBUserInfoHeaderVC: UIViewController {
         view.addSubview(bioLbl)
     }
     
+    func downloadImage() {
+        NetworkManager.shared.downloadImage(from: user.avatarUrl) {[weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.avatarImageView.image = image }
+        }
+    }
     
     func layoutUI() {
         let padding: CGFloat        = 20

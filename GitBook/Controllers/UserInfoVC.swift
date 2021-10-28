@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol UserInfoVCDeligate: class {
+protocol UserInfoVCDeligate: AnyObject {
     
     func didTapGitHubProfile(for user: User)
     func didTapGetFollowers(for user: User)
     
 }
 
-class UserInfoVC: UIViewController {
+class UserInfoVC: GBDataLoadingVC {
     
     let headerView = UIView()
     let itemViewOne = UIView()
@@ -22,7 +22,7 @@ class UserInfoVC: UIViewController {
     let dateLabel   = GBBodyLabel(textAlignment: .center)
     var itemViews: [UIView] = []
     
-    
+
     var userName: String!
     weak var delegate: FolowerListVCDelegate!
     
@@ -33,6 +33,7 @@ class UserInfoVC: UIViewController {
         getUserInfo()
         
         }
+    
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
@@ -54,6 +55,7 @@ class UserInfoVC: UIViewController {
             }
         }
     
+    
     func configureUIElements(user: User) {
         
         let repoItemVC              = GBRepoItemVC(user: user)
@@ -65,7 +67,7 @@ class UserInfoVC: UIViewController {
         self.add(childVC: repoItemVC, to: self.itemViewOne)
         self.add(childVC: followerItemVC, to: self.itemViewTwo)
         self.add(childVC: GBUserInfoHeaderVC(user: user), to: self.headerView)
-        self.dateLabel.text  = "GitHub since : \(user.createdAt.convertToDisplayFormat())"
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
         
     }
     
@@ -88,7 +90,6 @@ class UserInfoVC: UIViewController {
        }
 
        
-  
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 180),
@@ -119,7 +120,6 @@ class UserInfoVC: UIViewController {
     @objc func dismssVC() {
         dismiss(animated: true)
     }
-
 }
 
 extension UserInfoVC: UserInfoVCDeligate {
@@ -142,6 +142,4 @@ extension UserInfoVC: UserInfoVCDeligate {
         delegate.didRequestFollowers(for: user.login)
         dismssVC()
     }
-    
-    
 }
