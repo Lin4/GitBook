@@ -18,10 +18,10 @@ class GBUserInfoHeaderVC: UIViewController {
     
     var user: User!
     
+    
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
         self.user = user
-        
     }
 
     
@@ -30,7 +30,6 @@ class GBUserInfoHeaderVC: UIViewController {
         addSubviews()
         layoutUI()
         configureUIElements()
-        
     }
     
     
@@ -40,7 +39,7 @@ class GBUserInfoHeaderVC: UIViewController {
     
     
     func configureUIElements() {
-        downloadImage()
+        avatarImageView.downloadImage(fromURL: user.avatarUrl)
         userNameLbl.text        = user.login
         nameLabel.text          = user.name ?? ""
         locationLbl.text        = user.location ?? ""
@@ -54,17 +53,10 @@ class GBUserInfoHeaderVC: UIViewController {
     
     func addSubviews() {
         view.addSubviews(avatarImageView, userNameLbl, nameLabel, locationImage, locationLbl, bioLbl)
-        
     }
     
     
-    func downloadImage() {
-        NetworkManager.shared.downloadImage(from: user.avatarUrl) {[weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.avatarImageView.image = image }
-        }
-    }
-    
+
     
     func layoutUI() {
         let padding: CGFloat        = 20
@@ -103,9 +95,7 @@ class GBUserInfoHeaderVC: UIViewController {
             bioLbl.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: textAlignment),
             bioLbl.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bioLbl.heightAnchor.constraint(equalToConstant: 90),
-            
-    
+            bioLbl.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
 }

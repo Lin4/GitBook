@@ -26,15 +26,12 @@ class FavoritesCell: UITableViewCell {
     
     
     func set(favorites: Follower) {
+        avatarImageView.downloadImage(fromURL: favorites.avatarUrl)
         userNameLbl.text = favorites.login
-        NetworkManager.shared.downloadImage(from: favorites.avatarUrl) {[weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.avatarImageView.image = image }
-        }
     }
     
     
-    private func configure() {
+    private func configure() { 
         self.addSubviews(avatarImageView, userNameLbl)
         
         
@@ -42,7 +39,6 @@ class FavoritesCell: UITableViewCell {
         let padding: CGFloat    = 12
         
         NSLayoutConstraint.activate([
-        
             avatarImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             avatarImageView.heightAnchor.constraint(equalToConstant: 60),
@@ -53,9 +49,6 @@ class FavoritesCell: UITableViewCell {
             userNameLbl.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 24),
             userNameLbl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             userNameLbl.heightAnchor.constraint(equalToConstant: 40)
-        
-        
-        
         ])
     }
 }

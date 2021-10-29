@@ -12,16 +12,16 @@ class FollowerListVC: GBDataLoadingVC {
     enum Section { case main }
     
     var userName: String!
-    var followers: [Follower] = []
-    var filteredFollowers: [Follower] = []
+    var followers: [Follower]               = []
+    var filteredFollowers: [Follower]       = []
+    var hasMoreFollowers                    = true
+    var isSearching                         = false
+    var isLoadingMoreFollowers              = false
+    var page                                = 1
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
-    var hasMoreFollowers = true
-    var isSearching = false
-    var isLoadingMoreFollowers = false
-    var page = 1
-    
+   
     
     init(userName: String) {
         super.init(nibName: nil, bundle: nil)
@@ -56,28 +56,33 @@ class FollowerListVC: GBDataLoadingVC {
     
     @objc func addButtonTapped() {
         showLodingView()
+        
         NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
             guard let self = self else {return}
             self.dismissLodingView()
             
             switch result {
             case .success(let user):
-                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                PersistanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-                    guard let self = self else {return}
-                    guard let error = error else {
-                    self.presentGBAlertOnMainThread(title: "Success", message: "You have successfully add favorite list", buttonTitle: "Ok")
-                        return
-                    }
-                    self.presentGBAlertOnMainThread(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
-                }
-                
+                self.addUserToFavorites(user: user)
             case  .failure(let error):
                 self.presentGBAlertOnMainThread(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
     
+    
+    func addUserToFavorites(user: User) {
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        PersistanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self else {return}
+            guard let error = error else {
+            self.presentGBAlertOnMainThread(title: "Success", message: "You have successfully add favorite list", buttonTitle: "Ok")
+                return
+            }
+            self.presentGBAlertOnMainThread(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
+        }
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -106,25 +111,34 @@ class FollowerListVC: GBDataLoadingVC {
     func getFollowers(userName: String, page: Int) {
         showLodingView()
         isLoadingMoreFollowers = true
+        
         NetworkManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
             guard let self = self else {return}
             self.dismissLodingView()
+            
             switch result {
             case .success(let followers):
-                if followers.count < 100 {self.hasMoreFollowers = false}
-                self.followers.append(contentsOf: followers)
+                self.updateUI(with: followers)
                 
-                if self.followers.isEmpty {
-                   let  message = "This user doesn't have any follower😂"
-                    DispatchQueue.main.async {self.showEmptyStateView(with: message , in: self.view)}
-                    return
-                   }
-                self.updateData(on: self.followers)
             case .failure(let error):
                 self.presentGBAlertOnMainThread(title: "Bad stuff Happened", message: error.rawValue, buttonTitle: "Ok")
             }
             self.isLoadingMoreFollowers = false
         }
+    }
+    
+    
+    func updateUI(with followers: [Follower]) {
+        if followers.count < 100 { self.hasMoreFollowers = false }
+        self.followers.append(contentsOf: followers)
+        
+        if self.followers.isEmpty {
+            let message = "This user doesn't have any followers. Go follow them 😀."
+            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+            return
+        }
+        
+        self.updateData(on: self.followers)
     }
     
     

@@ -233,9 +233,9 @@
 		08C05125271BD7C400300126 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				08C050EA271932A000300126 /* FavoriteListVC.swift */,
 				08C050E72719321300300126 /* SearchVC.swift */,
 				08C050F4271A7D7100300126 /* FollowerListVC.swift */,
+				08C050EA271932A000300126 /* FavoriteListVC.swift */,
 				08BE5E3E2721C4DE00200CA9 /* UserInfoVC.swift */,
 			);
 			path = Controllers;

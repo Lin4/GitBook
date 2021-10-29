@@ -28,11 +28,8 @@ class GBDataLoadingVC: UIViewController {
         NSLayoutConstraint.activate([
             activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
-        
         ])
-        
         activityIndicator.startAnimating()
-        
     }
     
     
@@ -41,7 +38,6 @@ class GBDataLoadingVC: UIViewController {
             self.containerView?.removeFromSuperview()
             self.containerView = nil
         }
-
     }
     
 

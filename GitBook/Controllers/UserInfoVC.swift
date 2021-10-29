@@ -13,7 +13,6 @@ protocol UserInfoVCDelegate: AnyObject {
 
 class UserInfoVC: GBDataLoadingVC {
     
-    
     let scrollView  = UIScrollView()
     let contentView = UIView()
     

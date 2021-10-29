@@ -18,6 +18,7 @@ class GBAlertVC: UIViewController {
     var alertTitle: String?
     var message: String?
     var buttonTitle: String?
+    
     var padding: CGFloat = 20
 
     
@@ -25,11 +26,11 @@ class GBAlertVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         view.addSubviews(containerView, titleLabel, alertButton, messageLabel)
+        
         configureContainerView()
         configureTitleLabel()
         configureAlertButton()
         configureMessageLabel()
-
     }
     
     
@@ -69,7 +70,6 @@ class GBAlertVC: UIViewController {
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
             titleLabel.heightAnchor.constraint(equalToConstant: 28)
         ])
-        
     }
     
     
@@ -98,15 +98,12 @@ class GBAlertVC: UIViewController {
             messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
             messageLabel.bottomAnchor.constraint(equalTo: alertButton.topAnchor, constant: -12)
-        
         ])
-        
     }
     
 
     @objc func dismissVC() {
         dismiss(animated: true)
     }
-    
 }
        
