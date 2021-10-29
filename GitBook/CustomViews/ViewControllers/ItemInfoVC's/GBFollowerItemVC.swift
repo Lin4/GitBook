@@ -7,7 +7,25 @@
 
 import UIKit
 
+protocol GBFollowerItemVCDeligate: AnyObject {
+
+    func didTapGetFollowers(for user: User)
+    
+}
+
 class GBFollowerItemVC: GBItemInfoVC {
+    
+    weak var delegate: GBFollowerItemVCDeligate!
+    
+    init(user: User, delegate: GBFollowerItemVCDeligate) {
+        super.init(user: user)
+        self.delegate = delegate
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()

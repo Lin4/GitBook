@@ -44,18 +44,14 @@ class GBUserInfoHeaderVC: UIViewController {
         locationLbl.text        = user.location ?? ""
         bioLbl.text             = user.bio ?? ""
         bioLbl.numberOfLines    = 3
-        locationImage.image     = UIImage(systemName: SFSymbols.location)
+        locationImage.image     = SFSymbols.location
         locationImage.tintColor = .secondaryLabel
         
     }
     
     func addSubviews() {
-        view.addSubview(avatarImageView)
-        view.addSubview(userNameLbl)
-        view.addSubview(nameLabel)
-        view.addSubview(locationImage)
-        view.addSubview(locationLbl)
-        view.addSubview(bioLbl)
+        view.addSubviews(avatarImageView, userNameLbl, nameLabel, locationImage, locationLbl, bioLbl)
+        
     }
     
     func downloadImage() {
@@ -102,7 +98,7 @@ class GBUserInfoHeaderVC: UIViewController {
             bioLbl.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: textAlignment),
             bioLbl.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bioLbl.heightAnchor.constraint(equalToConstant: 60),
+            bioLbl.heightAnchor.constraint(equalToConstant: 90),
             
     
         ])

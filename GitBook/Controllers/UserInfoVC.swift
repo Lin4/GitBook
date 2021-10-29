@@ -7,11 +7,8 @@
 
 import UIKit
 
-protocol UserInfoVCDeligate: AnyObject {
-    
-    func didTapGitHubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
-    
+protocol UserInfoVCDelegate: AnyObject {
+    func didRequestFollowers(for userName: String)
 }
 
 class UserInfoVC: GBDataLoadingVC {
@@ -24,7 +21,7 @@ class UserInfoVC: GBDataLoadingVC {
     
 
     var userName: String!
-    weak var delegate: FolowerListVCDelegate!
+    weak var delegate: UserInfoVCDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +30,7 @@ class UserInfoVC: GBDataLoadingVC {
         getUserInfo()
         
         }
-    
-    
+
     func configureViewController() {
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismssVC))
@@ -58,14 +54,8 @@ class UserInfoVC: GBDataLoadingVC {
     
     func configureUIElements(user: User) {
         
-        let repoItemVC              = GBRepoItemVC(user: user)
-        repoItemVC.delegate         = self
-        
-        let followerItemVC          = GBFollowerItemVC(user: user)
-        followerItemVC.delegate     = self
-        
-        self.add(childVC: repoItemVC, to: self.itemViewOne)
-        self.add(childVC: followerItemVC, to: self.itemViewTwo)
+        self.add(childVC: GBRepoItemVC(user: user, delegate: self), to: self.itemViewOne)
+        self.add(childVC: GBFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
         self.add(childVC: GBUserInfoHeaderVC(user: user), to: self.headerView)
         self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
         
@@ -92,7 +82,7 @@ class UserInfoVC: GBDataLoadingVC {
        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180),
+            headerView.heightAnchor.constraint(equalToConstant: 210),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
@@ -101,11 +91,11 @@ class UserInfoVC: GBDataLoadingVC {
            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
             
             dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
-            dateLabel.heightAnchor.constraint(equalToConstant: 18)
+            dateLabel.heightAnchor.constraint(equalToConstant: 50)
      
         ])
 
-    }
+    }  
     
    
     func add(childVC: UIViewController, to containerView: UIView) {
@@ -122,14 +112,14 @@ class UserInfoVC: GBDataLoadingVC {
     }
 }
 
-extension UserInfoVC: UserInfoVCDeligate {
+extension UserInfoVC: GBRepoItemVCDeligate, GBFollowerItemVCDeligate {
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGBAlertOnMainThread(title: "Invalid URL", message: "The URL attached to this user is not valid", buttonTitle: "Ok")
-            
+
             return
         }
-        
+
         presentSafariVC(with: url)
     }
     
@@ -138,8 +128,10 @@ extension UserInfoVC: UserInfoVCDeligate {
             presentGBAlertOnMainThread(title: "No Followers", message: "This User has no followers, what a shame😂", buttonTitle: "So Sad")
             return
         }
-        
+
         delegate.didRequestFollowers(for: user.login)
         dismssVC()
     }
 }
+
+

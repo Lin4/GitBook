@@ -23,6 +23,7 @@ class GBAlertVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        view.addSubviews(containerView, titleLabel, alertButton, messageLabel)
         configureContainerView()
         configureTitleLabel()
         configureAlertButton()
@@ -42,7 +43,7 @@ class GBAlertVC: UIViewController {
     }
     
     func configureContainerView() {
-        view.addSubview(containerView) 
+     
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -54,7 +55,7 @@ class GBAlertVC: UIViewController {
     }
     
     func configureTitleLabel() {
-        containerView.addSubview(titleLabel)
+     
         titleLabel.text = alertTitle ?? "Error Loding "
         
         NSLayoutConstraint.activate([
@@ -67,7 +68,7 @@ class GBAlertVC: UIViewController {
     }
     
     func configureAlertButton() {
-        containerView.addSubview(alertButton)
+        
         alertButton.setTitle(buttonTitle ?? "Ok", for: .normal)
         alertButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
@@ -81,7 +82,7 @@ class GBAlertVC: UIViewController {
     }
     
     func configureMessageLabel() {
-        containerView.addSubview(messageLabel)
+      
         messageLabel.text           = message ?? "Unable to load message"
         messageLabel.numberOfLines  = 4
         

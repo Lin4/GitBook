@@ -34,6 +34,7 @@ class FollowerCell: UICollectionViewCell {
     }
     
     private func configure() {
+     
         addSubview(avatarImageView)
         addSubview(userNameLbl)
         
