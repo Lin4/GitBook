@@ -15,11 +15,14 @@ class GBTabBarController: UITabBarController {
         viewControllers = [createSearchNC(), createFavotiteNC()]
 
     }
+    
+    
     func createSearchNC() -> UINavigationController {
         let searchVC = SearchVC()
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         return UINavigationController(rootViewController: searchVC)
     }
+    
     
     func createFavotiteNC() -> UINavigationController {
         let favoriteListVC = FavoriteListVC()

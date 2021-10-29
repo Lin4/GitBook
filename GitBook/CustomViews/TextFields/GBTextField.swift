@@ -8,6 +8,7 @@
 import UIKit
 
 class GBTextField: UITextField {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configur()
@@ -16,6 +17,8 @@ class GBTextField: UITextField {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     private func configur() {
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -35,7 +38,5 @@ class GBTextField: UITextField {
         returnKeyType               = .go
         clearButtonMode             = .whileEditing
         placeholder                 = "Enter a username"
-        
     }
-
 }

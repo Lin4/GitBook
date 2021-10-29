@@ -9,30 +9,29 @@ import UIKit
 
 
 class FavoriteListVC: GBDataLoadingVC {
-
-
-    var tableView = UITableView()
     
+    var tableView = UITableView()
     var favorites: [Follower] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureTableView()
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getFavoritesList()
     }
     
+    
     func configureViewController() {
-        
         view.backgroundColor        = .systemBackground
         title                       = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
     
     func configureTableView() {
         view.addSubview(tableView)
@@ -45,6 +44,7 @@ class FavoriteListVC: GBDataLoadingVC {
         
         tableView.register(FavoritesCell.self, forCellReuseIdentifier: FavoritesCell.reuseID)
     }
+    
     
     func getFavoritesList() {
         PersistanceManager.retrieveFavorites {[weak self] result in
@@ -70,11 +70,13 @@ class FavoriteListVC: GBDataLoadingVC {
     }
 }
 
+
 extension FavoriteListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favorites.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesCell.reuseID) as! FavoritesCell
@@ -82,6 +84,7 @@ extension FavoriteListVC: UITableViewDelegate, UITableViewDataSource {
         cell.set(favorites: favorite)
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let favorite    = favorites[indexPath.row]
@@ -91,6 +94,7 @@ extension FavoriteListVC: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.pushViewController(destVC, animated: true)
     }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }

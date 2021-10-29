@@ -14,9 +14,7 @@ class SearchVC: UIViewController {
     let callToActionButton = GBButton(backgroundColor: .systemGreen, title: "Get Followers")
     var logoImageViewTopConstraint: NSLayoutConstraint!
     
-    var isUserNameEntered: Bool{
-        return !userNameTF.text!.isEmpty
-    }
+    var isUserNameEntered: Bool{ return !userNameTF.text!.isEmpty }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +24,8 @@ class SearchVC: UIViewController {
         configureTextField()
         configureCallToActionButton()
         createDismissKeyboardTabGesture()
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,22 +39,26 @@ class SearchVC: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
 
+    
     @objc func pushFollowerListVC() {
     guard isUserNameEntered else {
         presentGBAlertOnMainThread(title: "Empty UserName", message: "Please enter a username, we need to know who you are 😎" , buttonTitle: "Ok")
         return
     }
        
+        
         userNameTF.resignFirstResponder()
         let followerListVC      = FollowerListVC(userName: userNameTF.text!)  
         navigationController?.pushViewController(followerListVC, animated: true)
     
    }
+    
     
     func configureLogoImageView() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +103,7 @@ class SearchVC: UIViewController {
     }
     
 }
+
 
 extension SearchVC: UISearchTextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

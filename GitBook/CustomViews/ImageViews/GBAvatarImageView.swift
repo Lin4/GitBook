@@ -28,7 +28,5 @@ class GBAvatarImageView: UIImageView {
         clipsToBounds       = true
         image               = placeHolderImage
         translatesAutoresizingMaskIntoConstraints = false
-        
     }
-    
 }

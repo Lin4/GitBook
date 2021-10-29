@@ -8,14 +8,17 @@
 import UIKit
 
 class GBButton: UIButton {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
    convenience init(backgroundColor: UIColor, title: String) {
         self.init(frame: .zero)
@@ -23,6 +26,7 @@ class GBButton: UIButton {
         self.setTitle(title, for: .normal)
        
     }
+    
     
     private func configure() {
         layer.cornerRadius      = 10
@@ -32,10 +36,10 @@ class GBButton: UIButton {
         
         
     }
+    
+    
     func set(backgroundColor: UIColor, title: String) {
         self.backgroundColor = backgroundColor
         setTitle(title, for: .normal)
-        
     }
-    
 }

@@ -9,8 +9,8 @@ import UIKit
 import SafariServices
 
 
-
 extension UIViewController {
+    
     func presentGBAlertOnMainThread(title: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
             let alertVC = GBAlertVC(title: title, message: message, buttonTitle: buttonTitle)
@@ -19,6 +19,7 @@ extension UIViewController {
             self.present(alertVC, animated: true)
         }
     }
+    
     
     func presentSafariVC(with url: URL) {
         let safariVC = SFSafariViewController(url: url)

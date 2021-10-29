@@ -8,6 +8,7 @@
 import UIKit
 
 class NetworkManager {
+    
     static let shared   = NetworkManager()
     private let baseURL         = "https://api.github.com/users/"
     let cache           = NSCache<NSString, UIImage>()
@@ -90,6 +91,7 @@ class NetworkManager {
         
         task.resume()
     }
+    
     
     func downloadImage(from urlString: String, completed: @escaping(UIImage?) -> Void) {
         

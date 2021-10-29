@@ -27,11 +27,13 @@ class FollowerCell: UICollectionViewCell {
         }
     }
     
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         configure()
         
     }
+    
     
     private func configure() {
      

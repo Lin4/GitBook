@@ -8,7 +8,6 @@
 import UIKit
 
 enum ItemInfoType {
-    
     case repos, gists, followes, following
 }
 
@@ -24,9 +23,11 @@ class GBItemInfoView: UIView {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     private func configure() {
         self.addSubviews(symbolImageView, titleLabel, countLabel)
@@ -52,10 +53,9 @@ class GBItemInfoView: UIView {
             countLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             countLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             countLabel.heightAnchor.constraint(equalToConstant: 18)
-    
         ])
-        
     }
+    
     
     func set(itemInfoType: ItemInfoType, withCount count: Int) {
         switch itemInfoType {
@@ -74,5 +74,4 @@ class GBItemInfoView: UIView {
         }
         countLabel.text             = String(count)
     }
-    
 }

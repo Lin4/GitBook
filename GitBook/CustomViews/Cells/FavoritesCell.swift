@@ -8,18 +8,22 @@
 import UIKit
 
 class FavoritesCell: UITableViewCell {
+    
     static let reuseID  = "FavoritesCell"
     let avatarImageView = GBAvatarImageView(frame: .zero)
     let userNameLbl     = GBTitleLabel(textAlignment: .left, fontSize: 26)
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func set(favorites: Follower) {
         userNameLbl.text = favorites.login
@@ -28,6 +32,7 @@ class FavoritesCell: UITableViewCell {
             DispatchQueue.main.async { self.avatarImageView.image = image }
         }
     }
+    
     
     private func configure() {
         self.addSubviews(avatarImageView, userNameLbl)

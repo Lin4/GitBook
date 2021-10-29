@@ -20,6 +20,7 @@ class GBAlertVC: UIViewController {
     var buttonTitle: String?
     var padding: CGFloat = 20
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
@@ -31,6 +32,7 @@ class GBAlertVC: UIViewController {
 
     }
     
+    
     init(title: String, message: String, buttonTitle: String){
         super.init(nibName: nil, bundle: nil)
         self.alertTitle     = title
@@ -38,9 +40,11 @@ class GBAlertVC: UIViewController {
         self.buttonTitle    = buttonTitle
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func configureContainerView() {
      
@@ -53,6 +57,7 @@ class GBAlertVC: UIViewController {
         ])
         
     }
+    
     
     func configureTitleLabel() {
      
@@ -67,6 +72,7 @@ class GBAlertVC: UIViewController {
         
     }
     
+    
     func configureAlertButton() {
         
         alertButton.setTitle(buttonTitle ?? "Ok", for: .normal)
@@ -80,6 +86,7 @@ class GBAlertVC: UIViewController {
         
         ])
     }
+    
     
     func configureMessageLabel() {
       

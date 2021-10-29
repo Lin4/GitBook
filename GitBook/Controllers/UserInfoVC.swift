@@ -36,11 +36,13 @@ class UserInfoVC: GBDataLoadingVC {
         
         }
 
+    
     func configureViewController() {
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismssVC))
         navigationItem.rightBarButtonItem = doneButton
     }
+    
     
     func configureScrollView() {
         view.addSubview(scrollView)
@@ -51,9 +53,9 @@ class UserInfoVC: GBDataLoadingVC {
         NSLayoutConstraint.activate([
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.heightAnchor.constraint(equalToConstant: 600)
-            
         ])
     }
+    
     
     func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
@@ -75,7 +77,6 @@ class UserInfoVC: GBDataLoadingVC {
         self.add(childVC: GBFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
         self.add(childVC: GBUserInfoHeaderVC(user: user), to: self.headerView)
         self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
-        
     }
     
     
@@ -91,9 +92,7 @@ class UserInfoVC: GBDataLoadingVC {
            NSLayoutConstraint.activate([
            itemView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
            itemView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -padding),
-           
            ])
-           
        }
 
        
@@ -109,9 +108,7 @@ class UserInfoVC: GBDataLoadingVC {
             
             dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
             dateLabel.heightAnchor.constraint(equalToConstant: 50)
-     
         ])
-
     }  
     
    
@@ -120,14 +117,14 @@ class UserInfoVC: GBDataLoadingVC {
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
-        
-        
     }
+    
     
     @objc func dismssVC() {
         dismiss(animated: true)
     }
 }
+
 
 extension UserInfoVC: GBRepoItemVCDeligate, GBFollowerItemVCDeligate {
     func didTapGitHubProfile(for user: User) {
@@ -136,9 +133,9 @@ extension UserInfoVC: GBRepoItemVCDeligate, GBFollowerItemVCDeligate {
 
             return
         }
-
         presentSafariVC(with: url)
-    }
+   }
+   
     
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {

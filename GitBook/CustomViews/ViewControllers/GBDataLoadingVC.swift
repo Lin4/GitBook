@@ -8,7 +8,9 @@
 import UIKit
 
 class GBDataLoadingVC: UIViewController {
+    
     var containerView: UIView!
+    
     func showLodingView() {
         containerView = UIView(frame: view.bounds)
         view.addSubview(containerView)
@@ -32,6 +34,7 @@ class GBDataLoadingVC: UIViewController {
         activityIndicator.startAnimating()
         
     }
+    
     
     func dismissLodingView() {
         DispatchQueue.main.async {

@@ -9,7 +9,6 @@ import UIKit
 
 class GBBodyLabel: UILabel {
 
-
         override init(frame: CGRect) {
             super.init(frame: frame)
             configure()
@@ -20,6 +19,7 @@ class GBBodyLabel: UILabel {
             fatalError("init(coder:) has not been implemented")
         }
         
+    
        convenience init(textAlignment: NSTextAlignment) {
             self.init(frame: .zero)
             self.textAlignment = textAlignment
@@ -36,5 +36,4 @@ class GBBodyLabel: UILabel {
             translatesAutoresizingMaskIntoConstraints = false
         
             }
-        
         }

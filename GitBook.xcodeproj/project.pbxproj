@@ -102,10 +102,10 @@
 		089929092724239A002ED000 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0899290C272424D6002ED000 /* ItemInfoVC's */,
 				089928FD2722723F002ED000 /* GBUserInfoHeaderVC.swift */,
 				08C05100271B961500300126 /* GBAlertVC.swift */,
 				089E3C00272B56D6009F3DBD /* GBDataLoadingVC.swift */,
-				0899290C272424D6002ED000 /* ItemInfoVC's */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -191,13 +191,12 @@
 		08C050C62718CE9000300126 /* GitBook */ = {
 			isa = PBXGroup;
 			children = (
-				08C05126271BD7D200300126 /* CustomCells */,
-				08C05127271BD81900300126 /* Extensions */,
 				08C0515F271CE37B00300126 /* Utils */,
 				08C05136271C443B00300126 /* Managers */,
-				08C05125271BD7C400300126 /* Controllers */,
-				08C05124271BD7BA00300126 /* CustomViews */,
 				08C05123271BD7AE00300126 /* Models */,
+				08C05127271BD81900300126 /* Extensions */,
+				08C05124271BD7BA00300126 /* CustomViews */,
+				08C05125271BD7C400300126 /* Controllers */,
 				08C050C72718CE9000300126 /* AppDelegate.swift */,
 				08C050C92718CE9000300126 /* SceneDelegate.swift */,
 				08C050D02718CE9200300126 /* Assets.xcassets */,
@@ -220,12 +219,13 @@
 			isa = PBXGroup;
 			children = (
 				089E3BFB272A44B4009F3DBD /* TabBarControllers */,
-				089929092724239A002ED000 /* ViewControllers */,
-				08BE5E3B272106A200200CA9 /* Views */,
-				08BE5E3A2721067E00200CA9 /* TextFields */,
-				08BE5E392721066300200CA9 /* ImageViews */,
-				08BE5E382721065600200CA9 /* Buttons */,
 				08BE5E372721064800200CA9 /* Labels */,
+				089929092724239A002ED000 /* ViewControllers */,
+				08BE5E392721066300200CA9 /* ImageViews */,
+				08BE5E3A2721067E00200CA9 /* TextFields */,
+				08BE5E382721065600200CA9 /* Buttons */,
+				08BE5E3B272106A200200CA9 /* Views */,
+				08C05165271D5D6C00300126 /* Cells */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -239,14 +239,6 @@
 				08BE5E3E2721C4DE00200CA9 /* UserInfoVC.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		08C05126271BD7D200300126 /* CustomCells */ = {
-			isa = PBXGroup;
-			children = (
-				08C05165271D5D6C00300126 /* Cells */,
-			);
-			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		08C05127271BD81900300126 /* Extensions */ = {
@@ -272,8 +264,8 @@
 		08C0515F271CE37B00300126 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				08C05160271CE3A900300126 /* ErrorMessage.swift */,
 				08C0516D271F226000300126 /* UIHelper.swift */,
+				08C05160271CE3A900300126 /* ErrorMessage.swift */,
 				089928FF27231664002ED000 /* Constants.swift */,
 			);
 			path = Utils;

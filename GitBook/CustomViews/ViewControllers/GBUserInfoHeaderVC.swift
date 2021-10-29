@@ -24,6 +24,7 @@ class GBUserInfoHeaderVC: UIViewController {
         
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -31,6 +32,7 @@ class GBUserInfoHeaderVC: UIViewController {
         configureUIElements()
         
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -49,10 +51,12 @@ class GBUserInfoHeaderVC: UIViewController {
         
     }
     
+    
     func addSubviews() {
         view.addSubviews(avatarImageView, userNameLbl, nameLabel, locationImage, locationLbl, bioLbl)
         
     }
+    
     
     func downloadImage() {
         NetworkManager.shared.downloadImage(from: user.avatarUrl) {[weak self] image in
@@ -60,6 +64,7 @@ class GBUserInfoHeaderVC: UIViewController {
             DispatchQueue.main.async { self.avatarImageView.image = image }
         }
     }
+    
     
     func layoutUI() {
         let padding: CGFloat        = 20
