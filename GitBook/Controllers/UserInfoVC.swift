@@ -13,7 +13,11 @@ protocol UserInfoVCDelegate: AnyObject {
 
 class UserInfoVC: GBDataLoadingVC {
     
-    let headerView = UIView()
+    
+    let scrollView  = UIScrollView()
+    let contentView = UIView()
+    
+    let headerView  = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
     let dateLabel   = GBBodyLabel(textAlignment: .center)
@@ -26,6 +30,7 @@ class UserInfoVC: GBDataLoadingVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureScrollView()
         layoutUI()
         getUserInfo()
         
@@ -37,6 +42,18 @@ class UserInfoVC: GBDataLoadingVC {
         navigationItem.rightBarButtonItem = doneButton
     }
     
+    func configureScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        scrollView.pinToEdges(of: view)
+        contentView.pinToEdges(of: scrollView)
+        
+        NSLayoutConstraint.activate([
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 600)
+            
+        ])
+    }
     
     func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
@@ -68,12 +85,12 @@ class UserInfoVC: GBDataLoadingVC {
        
        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
        for itemView in itemViews {
-           view.addSubview(itemView)
+           contentView.addSubview(itemView)
            itemView.translatesAutoresizingMaskIntoConstraints = false
            
            NSLayoutConstraint.activate([
-           itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-           itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
+           itemView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+           itemView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -padding),
            
            ])
            
@@ -81,7 +98,7 @@ class UserInfoVC: GBDataLoadingVC {
 
        
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 210),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),

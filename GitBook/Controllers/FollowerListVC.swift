@@ -65,7 +65,7 @@ class FollowerListVC: GBDataLoadingVC {
             switch result {
             case .success(let user):
                 let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                PresistanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+                PersistanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
                     guard let self = self else {return}
                     guard let error = error else {
                     self.presentGBAlertOnMainThread(title: "Success", message: "You have successfully add favorite list", buttonTitle: "Ok")

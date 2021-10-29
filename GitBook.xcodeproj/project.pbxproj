@@ -21,6 +21,7 @@
 		089E3BFF272A5622009F3DBD /* GBAllertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E3BFE272A5622009F3DBD /* GBAllertContainerView.swift */; };
 		089E3C01272B56D6009F3DBD /* GBDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E3C00272B56D6009F3DBD /* GBDataLoadingVC.swift */; };
 		089E3C03272B6FF6009F3DBD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E3C02272B6FF6009F3DBD /* UIView+Ext.swift */; };
+		089E3C05272BAA6E009F3DBD /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E3C04272BAA6E009F3DBD /* UITableView+Ext.swift */; };
 		08BE5E3D272107CE00200CA9 /* GFEmptyFolowerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE5E3C272107CE00200CA9 /* GFEmptyFolowerList.swift */; };
 		08BE5E3F2721C4DE00200CA9 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE5E3E2721C4DE00200CA9 /* UserInfoVC.swift */; };
 		08C050C82718CE9000300126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C050C72718CE9000300126 /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		089E3BFE272A5622009F3DBD /* GBAllertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBAllertContainerView.swift; sourceTree = "<group>"; };
 		089E3C00272B56D6009F3DBD /* GBDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBDataLoadingVC.swift; sourceTree = "<group>"; };
 		089E3C02272B6FF6009F3DBD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		089E3C04272BAA6E009F3DBD /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		08BE5E3C272107CE00200CA9 /* GFEmptyFolowerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyFolowerList.swift; sourceTree = "<group>"; };
 		08BE5E3E2721C4DE00200CA9 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		08C050C42718CE9000300126 /* GitBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +255,7 @@
 				08C05104271BB39900300126 /* UIViewController.EXT.swift */,
 				0899290D27250D73002ED000 /* Dates+Ext.swift */,
 				089E3C02272B6FF6009F3DBD /* UIView+Ext.swift */,
+				089E3C04272BAA6E009F3DBD /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				089E3BFF272A5622009F3DBD /* GBAllertContainerView.swift in Sources */,
 				08C050CA2718CE9000300126 /* SceneDelegate.swift in Sources */,
 				089929082723B951002ED000 /* GBRepoItemVC.swift in Sources */,
+				089E3C05272BAA6E009F3DBD /* UITableView+Ext.swift in Sources */,
 				08C050FE271A981100300126 /* GBBodyLabel.swift in Sources */,
 				0899290027231664002ED000 /* Constants.swift in Sources */,
 			);
