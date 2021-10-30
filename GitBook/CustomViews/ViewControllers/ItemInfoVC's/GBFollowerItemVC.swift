@@ -35,7 +35,7 @@ class GBFollowerItemVC: GBItemInfoVC {
     private func configureItems() {
         itemInfoViewOne.set(itemInfoType: .followes, withCount: user.followers)
         itemInfoViewTwo.set(itemInfoType: .following, withCount: user.following)
-        actionButton.set(backgroundColor: .systemGreen, title: "GitHub Followers")
+        actionButton.set(color: .systemGreen, title: "GitHub Followers", systemImageName: "cursorarrow.click")
     }
     
     

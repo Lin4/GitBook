@@ -34,7 +34,7 @@ class GBRepoItemVC: GBItemInfoVC {
     private func configureItems() {
         itemInfoViewOne.set(itemInfoType: .repos, withCount: user.publicRepos)
         itemInfoViewTwo.set(itemInfoType: .gists, withCount: user.publicGists)
-        actionButton.set(backgroundColor: .systemTeal, title: "GitHub Profile")
+        actionButton.set(color: .systemTeal, title: "GitHub Profile", systemImageName: "cursorarrow.click")
     }
     
     

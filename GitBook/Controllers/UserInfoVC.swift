@@ -57,17 +57,19 @@ class UserInfoVC: GBDataLoadingVC {
     
     
     func getUserInfo() {
-        NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
-            guard let self = self else { return }
-        
-            switch result {
-            case .success(let user):
-                DispatchQueue.main.async { self.configureUIElements(user: user) }
-            case .failure(let error):
-                self.presentGBAlertOnMainThread(title: "somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: userName)
+                configureUIElements(user: user)
+            } catch {
+                if let gbError = error as? GBErrors {
+                    presentGBAlert(title: "Something Went Wrong", message: gbError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
                 }
             }
         }
+    }
     
     
     func configureUIElements(user: User) {
@@ -128,7 +130,7 @@ class UserInfoVC: GBDataLoadingVC {
 extension UserInfoVC: GBRepoItemVCDeligate, GBFollowerItemVCDeligate {
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
-            presentGBAlertOnMainThread(title: "Invalid URL", message: "The URL attached to this user is not valid", buttonTitle: "Ok")
+            presentGBAlert(title: "Invalid URL", message: "The URL attached to this user is not valid", buttonTitle: "Ok")
 
             return
         }
@@ -138,7 +140,7 @@ extension UserInfoVC: GBRepoItemVCDeligate, GBFollowerItemVCDeligate {
     
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
-            presentGBAlertOnMainThread(title: "No Followers", message: "This User has no followers, what a shame😂", buttonTitle: "So Sad")
+            presentGBAlert(title: "No Followers", message: "This User has no followers, what a shame😂", buttonTitle: "So Sad")
             return
         }
 

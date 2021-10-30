@@ -57,18 +57,23 @@ class FollowerListVC: GBDataLoadingVC {
     @objc func addButtonTapped() {
         showLodingView()
         
-        NetworkManager.shared.getUserInfo(for: userName) { [weak self] result in
-            guard let self = self else {return}
-            self.dismissLodingView()
-            
-            switch result {
-            case .success(let user):
-                self.addUserToFavorites(user: user)
-            case  .failure(let error):
-                self.presentGBAlertOnMainThread(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: userName)
+                addUserToFavorites(user: user)
+                dismissLodingView()
+            } catch {
+                if let gberror = error as? GBErrors {
+                    presentGBAlert(title: "Somthing went wrong", message: gberror.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
+                }
+                dismissLodingView()
+         
             }
         }
     }
+
     
     
     func addUserToFavorites(user: User) {
@@ -76,14 +81,17 @@ class FollowerListVC: GBDataLoadingVC {
         PersistanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
             guard let self = self else {return}
             guard let error = error else {
-            self.presentGBAlertOnMainThread(title: "Success", message: "You have successfully add favorite list", buttonTitle: "Ok")
+                DispatchQueue.main.async {
+                    self.presentGBAlert(title: "Success", message: "You have successfully add favorite list", buttonTitle: "Ok")
+                    }
                 return
             }
-            self.presentGBAlertOnMainThread(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
+            
+            DispatchQueue.main.async {
+            self.presentGBAlert(title: "Somthing went wrong", message: error.rawValue, buttonTitle: "Ok")
         }
-        
     }
-    
+}
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -112,18 +120,21 @@ class FollowerListVC: GBDataLoadingVC {
         showLodingView()
         isLoadingMoreFollowers = true
         
-        NetworkManager.shared.getFollowers(for: userName, page: page) { [weak self] result in
-            guard let self = self else {return}
-            self.dismissLodingView()
-            
-            switch result {
-            case .success(let followers):
-                self.updateUI(with: followers)
-                
-            case .failure(let error):
-                self.presentGBAlertOnMainThread(title: "Bad stuff Happened", message: error.rawValue, buttonTitle: "Ok")
+        Task {
+            do{
+                let followers = try await NetworkManager.shared.getFollowers(for: userName, page: page)
+                updateUI(with: followers)
+                dismissLodingView()
+                isLoadingMoreFollowers = false
+            } catch {
+                if let gberror = error as? GBErrors {
+                    presentGBAlert(title: "Bad stuff Happened", message: gberror.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
+                }
+                isLoadingMoreFollowers = false
+                dismissLodingView()
             }
-            self.isLoadingMoreFollowers = false
         }
     }
     

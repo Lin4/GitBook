@@ -13,7 +13,7 @@ class GBAlertVC: UIViewController {
     let containerView = GBAllertContainerView()
     let titleLabel      = GBTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel    = GBBodyLabel(textAlignment: .center)
-    let alertButton     = GBButton(backgroundColor: .systemPink, title: "Ok")
+    let alertButton     = GBButton(color: .systemPink, title: "Ok", systemImageName: "checkmark.circle")
     
     var alertTitle: String?
     var message: String?
